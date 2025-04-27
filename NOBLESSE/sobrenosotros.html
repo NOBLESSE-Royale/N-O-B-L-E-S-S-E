@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Parkinsans:wght@300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+RO:wght@100..400&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N O B L E S S E</title>
+  <script>
+    window.onscroll = function () {
+      var header = document.getElementById("header");
+      var scrollPosition = window.scrollY;
+
+      if (scrollPosition > 50) {
+        header.classList.add("small");
+      } else {
+        header.classList.remove("small");
+      }
+    };
+    
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.querySelector(".dropdown-toggle");
+      const menu = document.querySelector(".dropdown-menu");
+
+      toggle.addEventListener("click", function (e) {
+        e.stopPropagation(); // evita que se cierre al hacer clic en el botón
+        menu.classList.toggle("show");
+      });
+
+      // Cierra el menú si haces clic fuera de él
+      document.addEventListener("click", function () {
+        menu.classList.remove("show");
+      });
+    });
+  </script>
+  <style>
+    @media (max-width: 768px) {
+  header {
+    padding: 10px 20px;
+    height: auto; /* Ajusta la altura del header */
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .left-section, .right-section {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo-nb {
+    font-size: 36px; /* Ajusta el tamaño del logo en dispositivos pequeños */
+    letter-spacing: 1px;
+  }
+
+  .logo-img {
+    width: 80px; /* Ajusta el tamaño del logo */
+  }
+
+  .menu-button {
+    font-size: 22px; /* Hace el botón de menú más grande */
+  }
+
+  .dropdown-content {
+    min-width: 150px;
+  }
+
+  .product-group {
+    grid-template-columns: 1fr; /* Muestra una sola columna de productos en pantallas pequeñas */
+  }
+
+  .section-title {
+    font-size: 20px; /* Ajusta el tamaño de los títulos */
+  }
+
+  .search-area {
+    display: none; /* Oculta el área de búsqueda para móviles si no es esencial */
+  }
+
+  footer {
+    padding: 20px 0;
+    font-size: 14px; /* Ajusta el tamaño de fuente del pie de página */
+  }
+
+  footer a {
+    margin: 0 5px; /* Ajusta los márgenes de los enlaces en el pie de página */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-nb {
+    font-size: 30px; /* Ajusta aún más el tamaño del logo */
+  }
+
+  .product-card {
+    margin-bottom: 15px;
+  }
+
+  .product-info {
+    padding: 10px;
+  }
+
+  .product-title {
+    font-size: 18px; /* Ajusta el tamaño del texto de los productos */
+  }
+
+  .product-price {
+    font-size: 16px; /* Ajusta el tamaño del precio del producto */
+  }
+}
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f0ea;
+    }
+
+    .play {
+      font-family: "Playfair Display", serif;
+      font-optical-sizing: auto;
+      font-weight: 700;
+      /* Negrita */
+      font-style: normal;
+      color: #3a2a1d;
+    }
+
+    .logo-nb {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      color: #2b1b0e;
+      text-align: center;
+      position: relative;
+      margin: 0;
+      font-weight: bold;
+      letter-spacing: 2px;
+      padding-top: 5px;
+      transition: opacity 0.5s ease;
+    }
+
+    header {
+      width: 100%;
+      top: 0;
+      left: 0;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(6px);
+      height: 100px;
+      border-bottom: 2px solid #fff;
+      background-color: #b58a4d;
+      position: fixed;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s ease;
+    }
+
+    .left-section,
+    .right-section {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .menu-icon {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .search-area {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .logo-img {
+      height: 110px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+      position: absolute;
+      top: -7px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .icon {
+      font-size: 18px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .bag .badge {
+      position: absolute;
+      top: -6px;
+      right: -8px;
+      background-color: black;
+      color: white;
+      border-radius: 50%;
+      font-size: 10px;
+      padding: 2px 5px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .menu-button {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 8px 12px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 180px;
+      background-color: white;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      border-radius: 6px;
+      z-index: 1001;
+      overflow: hidden;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #2b1b0e;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content hr {
+      margin: 5px 0;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: #2b1b0e;
+    }
+
+    header.small .logo-nb {
+      opacity: 0;
+    }
+
+    header.small .logo-img {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #padre {
+      top: 0;
+      left: 0;
+      flex: 1;
+      position: relative;
+      width: 100%;
+      z-index: -1
+    }
+
+    #content {
+      width: 90%;
+      margin: 100px auto 60px;
+      padding: 20px;
+      background-color: #f5f0ea;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(255, 0, 0, 0.15);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .product-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: #2b1b0e;
+      margin: 10px 0 5px;
+    }
+
+    .product-price {
+      color: #8c5e3c;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    h1 {
+      color: #3a2a1d;
+      margin-top: 0;
+    }
+
+    .product-group {
+      margin-bottom: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .section-title {
+      grid-column: 1 / -1;
+      width: 100%;
+      background-color: #f5f0ea;
+      padding: 10px;
+      height: auto;
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #e0d6c8;
+    }
+
+    footer {
+      width: 100%;
+      background: linear-gradient(135deg, #8c5e3c, #a87450);
+      color: #fff;
+      text-align: center;
+      padding: 40px 0;
+      font-size: 18px;
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 1px;
+      box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    footer p {
+      margin: 10px 0 0;
+      opacity: 0.9;
+    }
+
+    footer a {
+      color: #ffd5b2;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+    }
+
+    section {
+      margin-top: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <header id="header">
+    <div class="left-section">
+      <div class="dropdown">
+        <button class="menu-button">☰ Menu</button>
+        <div class="dropdown-content">
+          <a href="index.html">Zapatos</a>
+          <a href="index.html">Carteras</a>
+          <a href="index.html">Correas</a>
+          <hr>
+          <a href="#">Sobre Nosotros</a>
+          <a href="https://www.instagram.com/nobless.ee/" target="_blank">Contáctanos</a>
+          <a href="https://www.instagram.com/nobless.ee/" target="_blank">Instagram 💖</a>
+        </div>
+      </div>
+      <div class="search-area">
+        <i class="search-icon">🔍</i>
+        <span>Search</span>
+      </div>
+    </div>
+
+    <h1 class="logo-nb">N O B L E S S E</h1>
+    <img class="logo-img" src="WhatsApp_Image_2025-04-20_at_9.17.08_PM-removebg-preview.png" alt="Logo" width="" />
+
+    <div class="right-section">
+      <a href="https://www.instagram.com/nobless.ee/" target="_blank">Contact Us</a>
+      <i class="icon"><img src="images-removebg-preview.png" alt="valores" height="37" /></i>
+      <i class="icon">👤</i>
+
+    </div>
+  </header>
+
+  <section id="about-us" style="padding: 50px 20px; background-color: #f4f4f4; text-align: center;">
+    <h2 style="font-size: 2.5rem; color: #333;">Sobre Nosotros</h2>
+    <p style="font-size: 1.2rem; color: #555; max-width: 800px; margin: 20px auto;">
+      Bienvenidos a nuestra página. Somos un equipo dedicado a ofrecerte la mejor experiencia posible en N O B L E S S
+      E.<br>
+      D O N D E - L A - E L E G A N C I A - S E - E N C U E N T R A -
+      C O N  - L A - E S E N C I A</p>
+
+    <div style="display: flex; justify-content: center; gap: 40px; margin-top: 40px; flex-wrap: wrap;">
+      <div style="max-width: 300px; text-align: left;">
+        <h3 style="color: #333;">Misión</h3>
+        <p style="color: #555;">Nuestra misión es proporcionar artículos de cuero de alta calidad,
+          combinando artesanía tradicional y diseño moderno, para
+          ofrecer a nuestros clientes productos duraderos y
+          elegantes que resalten su estilo personal.</p>
+      </div>
+
+      <div style="max-width: 300px; text-align: left;">
+        <h3 style="color: #333;">Visión</h3>
+        <p style="color: #555;">Nuestra visión es posicionarnos como líderes en el mercado de artículos de cuero,
+          ofreciendo innovación, calidad y un legado de elegancia que inspire a generaciones futuras.</p>
+      </div>
+
+      <div style="max-width: 300px; text-align: left;">
+        <h3 style="color: #333;">Valores</h3>
+        <p style="color: #555;">Nos guiamos por principios sólidos:</p>
+        <ul style="list-style: disc; padding-left: 20px; color: #555; margin-top: 10px;">
+          <li>Responsabilidad</li>
+          <li>Respeto</li>
+          <li>Creatividad</li>
+          <li>Compromiso</li>
+          <li>Liderazgo</li>
+          <li>Innovación</li>
+          <li>Calidad</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px;">
+      <h3 style="color: #333;">Conoce al Equipo</h3>
+      <p style="color: #555;">Nuestro equipo está compuesto por profesionales apasionados que están listos para
+        ayudarte. Juntos trabajamos para ofrecerte una experiencia única y asegurarnos de que cada detalle sea perfecto.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 N O B L E S S E.</p>
+    <div>
+      <a href="index.html">Inicio</a>|
+
+      <a href="#">Contacto</a>
+    </div>
+  </footer>
+</body>
+
+</html>
